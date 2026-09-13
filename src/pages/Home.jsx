@@ -646,7 +646,13 @@ const HomeRegionalFootprint = () => {
   ]
 
   return (
-    <section style={{ padding: '100px 0', backgroundColor: '#f0fdf4' }}>
+    <section style={{
+      padding: '100px 0',
+      backgroundImage: "linear-gradient(rgba(254, 249, 243, 0.85), rgba(254, 249, 243, 0.85)), url('/images/globe.jpg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <div style={{ display: 'inline-block', padding: '8px 16px', backgroundColor: '#dcfce7', borderRadius: '8px', marginBottom: '24px', fontSize: '14px', fontWeight: '600', color: '#166534', fontFamily: 'Montserrat, sans-serif', border: '1px solid #166534' }}>
