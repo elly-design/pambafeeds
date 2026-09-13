@@ -9,8 +9,8 @@ const heroSlides = [
   },
   {
     image: '/images/ger.jpg',
-    title: 'Quality Beans',
-    highlight: 'from Burundi to East Africa'
+    title: 'Powering Growth and Sustainable Futures',
+    highlight: 'to Linkage Markets'
   },
   {
     image: '/images/nut.jpg',
@@ -69,6 +69,15 @@ const slides = [
     cta: 'Our Projects',
     link: '/projects',
     badge: 'Regional Markets'
+  },
+  {
+    image: '/images/ben.jpg',
+    title: 'Youth in Agriculture',
+    subtitle: 'Future Agribusiness Leaders',
+    description: 'We partner with young farmers and entrepreneurs—providing training, inputs, and market linkages so they can build productive and resilient agribusinesses.',
+    cta: 'Our Work',
+    link: '/community-empowerment',
+    badge: 'Kenya, Uganda & Burundi'
   }
 ]
 
@@ -626,6 +635,82 @@ const ChatAssistant = () => {
   )
 }
 
+const HomeRegionalFootprint = () => {
+  const [activeCountry, setActiveCountry] = useState(0)
+
+  const countries = [
+    { name: 'Kenya', role: 'Headquarters & Market Hub', desc: 'Apiculture and regional market coordination.', color: '#166534' },
+    { name: 'Uganda', role: 'Groundnut Production', desc: 'Groundnut value chain with smallholder farmers and cooperatives.', color: '#f59e0b' },
+    { name: 'Burundi', role: 'Bean Production', desc: 'Bean value chain and market linkages to Kenya and South Sudan.', color: '#1e40af' },
+    { name: 'South Sudan', role: 'Emerging Market', desc: 'Exploring market opportunities for regional commodities and trade connections.', color: '#166534' }
+  ]
+
+  return (
+    <section style={{ padding: '100px 0', backgroundColor: '#f0fdf4' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div style={{ display: 'inline-block', padding: '8px 16px', backgroundColor: '#dcfce7', borderRadius: '8px', marginBottom: '24px', fontSize: '14px', fontWeight: '600', color: '#166534', fontFamily: 'Montserrat, sans-serif', border: '1px solid #166534' }}>
+            Regional Footprint
+          </div>
+          <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: '800', color: '#0f172a', marginBottom: '24px', fontFamily: 'Montserrat, sans-serif' }}>
+            Operating Across East Africa
+          </h2>
+          <p style={{ fontSize: '18px', color: '#475569', maxWidth: '700px', margin: '0 auto', lineHeight: 1.7 }}>
+            From Kenya to South Sudan, we are building regional value chains that connect farmers to markets.
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', marginBottom: '48px' }}>
+          {countries.map((country, index) => (
+            <div
+              key={index}
+              onMouseEnter={() => setActiveCountry(index)}
+              style={{
+                background: activeCountry === index ? country.color : 'white',
+                borderRadius: '20px',
+                padding: '40px',
+                textAlign: 'center',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                border: '1px solid #e2e8f0',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                transform: activeCountry === index ? 'translateY(-8px)' : 'translateY(0)'
+              }}
+            >
+              <h3 style={{ fontSize: '24px', fontWeight: '800', color: activeCountry === index ? 'white' : country.color, marginBottom: '8px', fontFamily: 'Montserrat, sans-serif' }}>{country.name}</h3>
+              <p style={{ fontSize: '14px', color: activeCountry === index ? 'rgba(255,255,255,0.9)' : '#64748b', fontWeight: '600', marginBottom: '16px' }}>{country.role}</p>
+              <p style={{ fontSize: '16px', color: activeCountry === index ? 'rgba(255,255,255,0.9)' : '#475569', lineHeight: 1.6 }}>{country.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <Link
+            to='/regional-footprint'
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '14px 28px',
+              backgroundColor: '#166534',
+              color: 'white',
+              borderRadius: '50px',
+              textDecoration: 'none',
+              fontWeight: '700',
+              fontFamily: 'Montserrat, sans-serif',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#14532d'; e.currentTarget.style.transform = 'translateY(-3px)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#166534'; e.currentTarget.style.transform = 'translateY(0)' }}
+          >
+            Explore Our Regional Footprint →
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 const Home = () => {
   const [heroIndex, setHeroIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -889,6 +974,75 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Who We Are Brief */}
+      <section style={{ padding: '100px 0', backgroundColor: '#f0fdf4' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '48px', alignItems: 'center' }}>
+            <div>
+              <div style={{
+                display: 'inline-block',
+                padding: '8px 16px',
+                backgroundColor: '#dcfce7',
+                borderRadius: '8px',
+                marginBottom: '24px',
+                fontSize: '14px',
+                fontWeight: '600',
+                color: '#166534',
+                fontFamily: 'Montserrat, sans-serif'
+              }}>
+                Who We Are
+              </div>
+              <h2 style={{
+                fontSize: 'clamp(32px, 4vw, 48px)',
+                fontWeight: '800',
+                color: '#0f172a',
+                marginBottom: '24px',
+                lineHeight: 1.2,
+                fontFamily: 'Montserrat, sans-serif'
+              }}>
+                From Farmers to Markets.<br />From Markets to Opportunity.
+              </h2>
+              <div style={{ width: '80px', height: '4px', backgroundColor: '#f59e0b', marginBottom: '32px', borderRadius: '2px' }}></div>
+              <p style={{ fontSize: '18px', color: '#475569', lineHeight: 1.8, marginBottom: '24px' }}>
+                Pamba Feeds is a social agribusiness based in Kenya, working to create inclusive and sustainable agricultural markets across East Africa. We connect smallholder farmers to buyers, inputs, knowledge, and services—building value chains that grow incomes and strengthen food security.
+              </p>
+              <Link to="/about" style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '14px 28px',
+                backgroundColor: '#166534',
+                color: 'white',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                fontWeight: '700',
+                fontFamily: 'Montserrat, sans-serif',
+                transition: 'all 0.3s ease'
+              }}>
+                Learn More About Us →
+              </Link>
+            </div>
+            <div style={{
+              position: 'relative',
+              height: '400px',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)'
+            }}>
+              <img
+                src="/images/frech.jpg"
+                alt="Who we are"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '24px'
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Introduction Section */}
       <section style={{ padding: '100px 0', backgroundColor: '#fef9f3' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
@@ -949,126 +1103,7 @@ const Home = () => {
 
       <ImageSlider />
 
-      {/* Our Approach Preview */}
-      <section style={{ padding: '100px 0', backgroundColor: 'white' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <div style={{
-              display: 'inline-block',
-              padding: '8px 16px',
-              backgroundColor: '#dcfce7',
-              borderRadius: '8px',
-              marginBottom: '24px',
-              fontSize: '14px',
-              fontWeight: '600',
-              color: '#166534',
-              fontFamily: 'Montserrat, sans-serif'
-            }}>
-              Our Methodology
-            </div>
-            <h2 style={{
-              fontSize: 'clamp(32px, 4vw, 48px)',
-              fontWeight: '800',
-              color: '#0f172a',
-              marginBottom: '24px',
-              fontFamily: 'Montserrat, sans-serif'
-            }}>
-              Our Market Systems Approach
-            </h2>
-            <div style={{ width: '80px', height: '4px', backgroundColor: '#f59e0b', margin: '0 auto 32px', borderRadius: '2px' }}></div>
-            <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '700px', margin: '0 auto' }}>
-              Rather than working with farmers in isolation, Pamba Feeds works with the different actors that make agricultural markets function.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
-            {[
-              { icon: '🔍', title: 'Identify Market Opportunities', desc: 'We identify demand, market gaps and opportunities within agricultural value chains.', color: '#166534' },
-              { icon: '🤝', title: 'Work With Market Actors', desc: 'We collaborate with farmers, cooperatives, buyers, agriprocessors, input suppliers and other value-chain actors.', color: '#f59e0b' },
-              { icon: '📦', title: 'Organize & Aggregate', desc: 'We support farmers to organize into groups and cooperatives that can collectively respond to market demand.', color: '#166534' },
-              { icon: '🎓', title: 'Build Farmer Capacity', desc: 'We support farmers with knowledge, training, tools and resources needed to improve production and quality.', color: '#f59e0b' },
-              { icon: '🔗', title: 'Connect Farmers to Markets', desc: 'We establish market linkages between organized producers and potential buyers.', color: '#166534' },
-              { icon: '♻️', title: 'Build Sustainable Value Chains', desc: 'We work to create commercially viable relationships that can continue beyond individual projects.', color: '#f59e0b' },
-            ].map((item, index) => (
-              <div key={index} style={{
-                background: 'white',
-                borderRadius: '20px',
-                padding: '40px',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.4s ease',
-                textAlign: 'center',
-                border: '1px solid #e2e8f0',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-12px)'
-                      e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)'
-                      e.currentTarget.style.borderColor = item.color
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)'
-                      e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)'
-                      e.currentTarget.style.borderColor = '#e2e8f0'
-                    }}>
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '4px',
-                  background: item.color
-                }}></div>
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  borderRadius: '20px',
-                  backgroundColor: `${item.color}15`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '40px',
-                  margin: '0 auto 24px'
-                }}>
-                  {item.icon}
-                </div>
-                <h3 style={{ fontSize: '22px', fontWeight: '700', color: '#0f172a', marginBottom: '16px', fontFamily: 'Montserrat, sans-serif' }}>
-                  {item.title}
-                </h3>
-                <p style={{ color: '#64748b', lineHeight: 1.7 }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link to="/approach" style={{
-              padding: '16px 40px',
-              fontSize: '18px',
-              fontWeight: '700',
-              fontFamily: 'Montserrat, sans-serif',
-              textDecoration: 'none',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, #166534 0%, #15803d 100%)',
-              color: 'white',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer',
-              border: 'none',
-              display: 'inline-block',
-              boxShadow: '0 8px 25px rgba(22, 163, 74, 0.3)'
-            }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)'
-                    e.currentTarget.style.boxShadow = '0 12px 35px rgba(22, 163, 74, 0.4)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)'
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(22, 163, 74, 0.3)'
-                  }}>
-              Learn More About Our Approach
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HomeRegionalFootprint />
 
       {/* Projects Preview */}
       <section style={{ padding: '100px 0', backgroundColor: '#0f172a', color: 'white' }}>

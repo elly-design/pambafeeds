@@ -18,6 +18,7 @@ const About = () => {
     { id: 'who', label: 'Who We Are' },
     { id: 'work', label: 'What We Do' },
     { id: 'values', label: 'Our Values' },
+    { id: 'approach', label: 'Our Approach' },
     { id: 'journey', label: 'Our Journey' }
   ]
 
@@ -131,21 +132,6 @@ const About = () => {
       {/* Tabbed About Section */}
       <section style={{ padding: '80px 0 120px', backgroundColor: '#fef9f3' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2 style={{
-              fontSize: 'clamp(28px, 4vw, 40px)',
-              fontWeight: '800',
-              color: '#0f172a',
-              fontFamily: 'Montserrat, sans-serif',
-              marginBottom: '16px'
-            }}>
-              Learn More About Pamba Feeds
-            </h2>
-            <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '700px', margin: '0 auto', lineHeight: 1.7 }}>
-              Explore the sections below to understand who we are, what we do, and the values that guide our work.
-            </p>
-          </div>
-
           {/* Tab Content */}
           <div key={activeTab} style={{ animation: 'slideIn 0.5s ease-out' }}>
             {activeTab === 'who' && (
@@ -227,106 +213,6 @@ const About = () => {
 
             {activeTab === 'work' && (
               <div>
-                <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-                  <h3 style={{
-                    fontSize: 'clamp(26px, 3vw, 36px)',
-                    fontWeight: '800',
-                    color: '#0f172a',
-                    marginBottom: '16px',
-                    fontFamily: 'Montserrat, sans-serif'
-                  }}>
-                    Our Work Currently Focuses On
-                  </h3>
-                  <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '700px', margin: '0 auto', lineHeight: 1.7 }}>
-                    We strengthen value chains and market systems through focused, practical interventions.
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    maxWidth: '600px',
-                    margin: '0 auto 64px',
-                    overflow: 'hidden',
-                    borderRadius: '24px',
-                    boxShadow: '0 20px 60px rgba(0,0,0,0.1)',
-                    backgroundColor: 'white'
-                  }}
-                  onMouseEnter={() => setFocusPaused(true)}
-                  onMouseLeave={() => setFocusPaused(false)}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      width: `${focusAreas.length * 100}%`,
-                      transform: `translateX(-${focusIndex * (100 / focusAreas.length)}%)`,
-                      transition: 'transform 0.6s ease-in-out'
-                    }}
-                  >
-                    {focusAreas.map((item, index) => (
-                      <div
-                        key={index}
-                        style={{
-                          width: `${100 / focusAreas.length}%`,
-                          padding: '48px',
-                          textAlign: 'center',
-                          background: 'white',
-                          border: '1px solid #e2e8f0'
-                        }}
-                      >
-                        <div style={{
-                          width: '90px',
-                          height: '90px',
-                          borderRadius: '24px',
-                          backgroundColor: `${item.color}15`,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '48px',
-                          margin: '0 auto 24px'
-                        }}>
-                          {item.icon}
-                        </div>
-                        <h4 style={{
-                          fontSize: '26px',
-                          fontWeight: '700',
-                          color: '#0f172a',
-                          marginBottom: '16px',
-                          fontFamily: 'Montserrat, sans-serif'
-                        }}>
-                          {item.title}
-                        </h4>
-                        <p style={{ color: '#64748b', fontSize: '18px', lineHeight: 1.7 }}>
-                          {item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Focus Area Dots */}
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    gap: '12px',
-                    padding: '24px'
-                  }}>
-                    {focusAreas.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setFocusIndex(index)}
-                        aria-label={`Go to focus area ${index + 1}`}
-                        style={{
-                          width: index === focusIndex ? '32px' : '12px',
-                          height: '12px',
-                          borderRadius: '6px',
-                          border: 'none',
-                          backgroundColor: index === focusIndex ? '#166534' : '#e2e8f0',
-                          cursor: 'pointer',
-                          transition: 'all 0.3s ease'
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
 
                 <h3 style={{
                   fontSize: 'clamp(24px, 3vw, 32px)',
@@ -460,6 +346,71 @@ const About = () => {
                       <p style={{ color: '#64748b', lineHeight: 1.7 }}>{item.desc}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'approach' && (
+              <div>
+                <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+                  <h3 style={{
+                    fontSize: 'clamp(26px, 3vw, 36px)',
+                    fontWeight: '800',
+                    color: '#0f172a',
+                    marginBottom: '16px',
+                    fontFamily: 'Montserrat, sans-serif'
+                  }}>
+                    Our Approach
+                  </h3>
+                  <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '700px', margin: '0 auto', lineHeight: 1.7 }}>
+                    We strengthen agricultural market systems by connecting farmers, buyers, and service providers across the value chain.
+                  </p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', marginBottom: '64px' }}>
+                  {[
+                    { icon: '🔍', title: 'Identify Market Opportunities', desc: 'We identify demand, market gaps and opportunities within agricultural value chains.', color: '#166534' },
+                    { icon: '🤝', title: 'Work With Market Actors', desc: 'We collaborate with farmers, cooperatives, buyers, agriprocessors, input suppliers and other actors.', color: '#f59e0b' },
+                    { icon: '📦', title: 'Organize & Aggregate', desc: 'We support farmers to organize into groups and cooperatives that can respond to market demand.', color: '#166534' },
+                    { icon: '🎓', title: 'Build Farmer Capacity', desc: 'We support farmers with knowledge, training, tools and resources to improve production and quality.', color: '#f59e0b' },
+                    { icon: '🔗', title: 'Connect Farmers to Markets', desc: 'We establish market linkages between organized producers and potential buyers.', color: '#166534' },
+                    { icon: '♻️', title: 'Build Sustainable Value Chains', desc: 'We create commercially viable relationships that continue beyond individual projects.', color: '#f59e0b' }
+                  ].map((item, index) => (
+                    <div key={index} style={{
+                      background: 'white',
+                      borderRadius: '20px',
+                      padding: '40px',
+                      boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+                      borderTop: `4px solid ${item.color}`,
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.1)' }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)' }}>
+                      <div style={{ fontSize: '40px', marginBottom: '16px' }}>{item.icon}</div>
+                      <h4 style={{ fontSize: '20px', fontWeight: '800', color: '#0f172a', marginBottom: '12px', fontFamily: 'Montserrat, sans-serif' }}>{item.title}</h4>
+                      <p style={{ color: '#64748b', lineHeight: 1.7 }}>{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ textAlign: 'center' }}>
+                  <Link to='/approach' style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '14px 28px',
+                    backgroundColor: '#166534',
+                    color: 'white',
+                    borderRadius: '50px',
+                    textDecoration: 'none',
+                    fontWeight: '700',
+                    fontFamily: 'Montserrat, sans-serif',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#14532d'; e.currentTarget.style.transform = 'translateY(-3px)' }}
+                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#166534'; e.currentTarget.style.transform = 'translateY(0)' }}>
+                    Explore Our Full Approach →
+                  </Link>
                 </div>
               </div>
             )}

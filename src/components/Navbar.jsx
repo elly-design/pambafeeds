@@ -40,16 +40,8 @@ const Navbar = () => {
         { path: '/about#who', label: 'Who We Are' },
         { path: '/about#work', label: 'What We Do' },
         { path: '/about#values', label: 'Our Values' },
+        { path: '/about#approach', label: 'Our Approach' },
         { path: '/about#journey', label: 'Our Journey' },
-      ]
-    },
-    { path: '/approach', label: 'Our Approach' },
-    {
-      label: 'Projects',
-      children: [
-        { path: '/projects/apiculture', label: 'Apiculture' },
-        { path: '/projects/groundnuts', label: 'Groundnuts' },
-        { path: '/projects/beans', label: 'Beans' },
       ]
     },
     {
@@ -135,13 +127,14 @@ const Navbar = () => {
                   fontWeight: item.children.some(c => isActive(c.path)) ? '700' : '600',
                   fontSize: '14px',
                   fontFamily: 'Montserrat, sans-serif',
-                  padding: '10px 16px',
+                  padding: '10px 16px 6px',
                   borderRadius: '8px',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  borderBottom: `2px solid ${item.children.some(c => isActive(c.path)) ? '#f59e0b' : 'transparent'}`
                 }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = hoverBg
@@ -167,10 +160,11 @@ const Navbar = () => {
                     fontWeight: isActive(item.path) ? '700' : '600',
                     fontSize: '14px',
                     fontFamily: 'Montserrat, sans-serif',
-                    padding: '10px 16px',
+                    padding: '10px 16px 6px',
                     borderRadius: '8px',
                     display: 'block',
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.3s ease',
+                    borderBottom: `2px solid ${isActive(item.path) ? '#f59e0b' : 'transparent'}`
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = hoverBg
@@ -332,7 +326,7 @@ const Navbar = () => {
                   fontSize: '16px',
                   fontFamily: 'Montserrat, sans-serif',
                   padding: '12px 0',
-                  borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
+                  borderBottom: `2px solid ${isActive(item.path) ? '#f59e0b' : 'rgba(0, 0, 0, 0.1)'}`
                 }}
               >
                 {item.label}
